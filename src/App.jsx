@@ -3,6 +3,7 @@ import ProductoCard from './components/ProductoCard';
 import { productosIniciales } from './data/productos';
 import './App.css';
 import BuscadorPokemon from "./components/BuscadorPokemon";
+import BuscadorJugador from "./components/BuscadorJugador";
 
 function App() {
   const [productos, setProductos] = useState(() => {
@@ -153,6 +154,7 @@ return (
   ))}
 </section>
 <BuscadorPokemon />
+<BuscadorJugador />
   </main>
   </>
   );
