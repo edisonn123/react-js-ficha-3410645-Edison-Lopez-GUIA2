@@ -1,10 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 import ProductoCard from './components/ProductoCard'; 
 import { productosIniciales } from './data/productos';
 import './App.css';
 
 function App() {
-  const [productos, setProductos] = useState(productosIniciales)
+  const [productos, setProductos] = useState(() => {
+  const guardados = localStorage.getItem("productos");
+
+  return guardados ? JSON.parse(guardados) : [];
+});
+useEffect(() => {
+  localStorage.setItem(
+    "productos",
+    JSON.stringify(productos)
+  );
+}, [productos]);
+
   const disponibles = productos.filter(producto => producto.stock > 0); 
   const valorInventario = productos.reduce(
     (total, producto) => total + producto.precio * producto.stock, 
