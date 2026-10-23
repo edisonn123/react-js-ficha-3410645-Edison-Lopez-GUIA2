@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ProductoCard from './components/ProductoCard'; 
 import { productosIniciales } from './data/productos';
 import './App.css';
+import BuscadorPokemon from "./components/BuscadorPokemon";
 
 function App() {
   const [productos, setProductos] = useState(() => {
@@ -151,7 +152,7 @@ return (
     </article>
   ))}
 </section>
-
+<BuscadorPokemon />
   </main>
   </>
   );
